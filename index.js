@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 var router = require('./routers/router')
@@ -12,6 +14,6 @@ app.get('/', (req, res) => {
 
 app.use(router)
 
-console.log("Finhay API Gateway run on localhost:3000")
+console.log("API Gateway run on localhost:" + process.env.PORT || 3000)
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router()
-var d3Router = require('./d3Service')
+var insuranceService = require('./insuranceService')
+var accountsService = require('./accountsService')
 var fullService = require('./fullService') // current full api app
 // var authRouter = require('../controller/AuthController')
 
@@ -9,7 +10,9 @@ router.use((req, res, next) => {
     next()
 })
 
-router.use('/insurance/v1/', d3Router)
+router.use('/insurance/v1/', insuranceService)
+router.use('/accounts/v1/', accountsService)
 router.use('/api/v2/', fullService)
+
 
 module.exports = router
